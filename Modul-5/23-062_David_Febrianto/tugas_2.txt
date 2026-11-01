@@ -1,0 +1,90 @@
+-- 1. Mengisi Tabel pelanggan
+INSERT INTO pelanggan (id, nama, jenis_kelamin, telp, alamat) VALUES
+('P001', 'Budi Santoso', 'L', '08120000001', 'Jl. Merdeka No 1'),
+('P002', 'Siti Aminah', 'P', '08120000002', 'Jl. Sudirman No 2'),
+('P003', 'Andi Wijaya', 'L', '08120000003', 'Jl. Thamrin No 3'),
+('P004', 'Rina Melati', 'P', '08120000004', 'Jl. Gatot Subroto No 4'),
+('P005', 'Joko Susilo', 'L', '08120000005', 'Jl. Pahlawan No 5'),
+('P006', 'Maya Sari', 'P', '08120000006', 'Jl. Diponegoro No 6'),
+('P007', 'Agus Pratama', 'L', '08120000007', 'Jl. Imam Bonjol No 7'),
+('P008', 'Dewi Lestari', 'P', '08120000008', 'Jl. Teuku Umar No 8'),
+('P009', 'Eko Saputro', 'L', '08120000009', 'Jl. Hasanuddin No 9'),
+('P010', 'Fitriani', 'P', '08120000010', 'Jl. Veteran No 10');
+
+-- 2. Mengisi Tabel supplier
+INSERT INTO supplier (nama, telp, alamat) VALUES
+('PT. Maju Bersama', '08123456', 'Surabaya'),
+('PT. Senang Sekali', '081515563', 'Bangkalan'),
+('PT Segar Segar', '0845454663', 'Surabaya'),
+('CV. Makmur Jaya', '0812998877', 'Sidoarjo'),
+('UD. Berkah Alam', '0855667788', 'Malang'),
+('PT. Teknologi Baru', '0822334455', 'Jakarta'),
+('CV. Sumber Rejeki', '0811223344', 'Gresik'),
+('UD. Hasil Bumi', '0877665544', 'Mojokerto'),
+('PT. Bintang Kejora', '0899887766', 'Pasuruan'),
+('CV. Karya Mandiri', '0833445566', 'Surabaya');
+
+-- 3. Mengisi Tabel user
+INSERT INTO user (username, password, nama, alamat, hp, level) VALUES
+('admin1', 'pass123', 'Admin Satu', 'Gedung A', '0811111111', 1),
+('admin2', 'pass123', 'Admin Dua', 'Gedung A', '0811111112', 1),
+('kasir1', 'kasir123', 'Kasir Satu', 'Toko Depan', '0811111113', 2),
+('kasir2', 'kasir123', 'Kasir Dua', 'Toko Depan', '0811111114', 2),
+('kasir3', 'kasir123', 'Kasir Tiga', 'Toko Tengah', '0811111115', 2),
+('kasir4', 'kasir123', 'Kasir Empat', 'Toko Tengah', '0811111116', 2),
+('staff1', 'staff123', 'Staff Gudang 1', 'Gudang Belakang', '0811111117', 3),
+('staff2', 'staff123', 'Staff Gudang 2', 'Gudang Belakang', '0811111118', 3),
+('staff3', 'staff123', 'Staff Gudang 3', 'Gudang Belakang', '0811111119', 3),
+('staff4', 'staff123', 'Staff Gudang 4', 'Gudang Belakang', '0811111120', 3);
+
+-- 4. Mengisi Tabel barang
+INSERT INTO barang (kode_barang, nama_barang, harga, stok, supplier_id) VALUES
+('BRG01', 'Minyak Goreng 1L', 15000, 100, 1),
+('BRG02', 'Beras 5kg', 65000, 50, 2),
+('BRG03', 'Gula Pasir 1kg', 12000, 200, 3),
+('BRG04', 'Tepung Terigu 1kg', 10000, 150, 4),
+('BRG05', 'Telur Ayam 1kg', 25000, 300, 5),
+('BRG06', 'Mie Instan', 3000, 500, 6),
+('BRG07', 'Susu Kental Manis', 11000, 120, 7),
+('BRG08', 'Kopi Bubuk 100gr', 15000, 80, 8),
+('BRG09', 'Teh Celup', 6000, 250, 9),
+('BRG10', 'Garam Dapur', 4000, 400, 10);
+
+-- 5. Mengisi Tabel transaksi
+INSERT INTO transaksi (waktu_transaksi, keterangan, total, pelanggan_id) VALUES
+('2026-10-01', 'Pembelian Rutin', 50000, 'P001'),
+('2026-10-02', 'Belanja Bulanan', 150000, 'P002'),
+('2026-10-03', 'Pembelian Eceran', 30000, 'P003'),
+('2026-10-04', 'Belanja Mingguan', 75000, 'P004'),
+('2026-10-05', 'Grosir Kecil', 200000, 'P005'),
+('2026-10-06', 'Pembelian Eceran', 45000, 'P006'),
+('2026-10-07', 'Kebutuhan Harian', 60000, 'P007'),
+('2026-10-08', 'Belanja Bulanan', 300000, 'P008'),
+('2026-10-09', 'Pembelian Rutin', 80000, 'P009'),
+('2026-10-10', 'Kebutuhan Dapur', 95000, 'P010');
+
+-- 6. Mengisi Tabel transaksi_detail
+INSERT INTO transaksi_detail (transaksi_id, barang_id, harga, qty) VALUES
+(1, 1, 15000, 2),
+(2, 2, 65000, 2),
+(3, 3, 12000, 2),
+(4, 4, 10000, 5),
+(5, 5, 25000, 8),
+(6, 6, 3000, 15),
+(7, 7, 11000, 4),
+(8, 8, 15000, 10),
+(9, 9, 6000, 10),
+(10, 10, 4000, 20);
+
+-- 7. Mengisi Tabel pembayaran (enum: 'TUNAI', 'TRANSFER', 'EDC')
+INSERT INTO pembayaran (waktu_bayar, total, metode, transaksi_id) VALUES
+('2026-10-01 10:30:00', 50000, 'TUNAI', 1),
+('2026-10-02 11:00:00', 150000, 'TRANSFER', 2),
+('2026-10-03 12:15:00', 30000, 'TUNAI', 3),
+('2026-10-04 14:00:00', 75000, 'EDC', 4),
+('2026-10-05 09:45:00', 200000, 'TRANSFER', 5),
+('2026-10-06 15:30:00', 45000, 'TUNAI', 6),
+('2026-10-07 16:20:00', 60000, 'TUNAI', 7),
+('2026-10-08 10:10:00', 300000, 'TRANSFER', 8),
+('2026-10-09 13:40:00', 80000, 'EDC', 9),
+('2026-10-10 17:05:00', 95000, 'TUNAI', 10);
